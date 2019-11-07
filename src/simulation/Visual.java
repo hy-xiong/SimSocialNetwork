@@ -1,5 +1,4 @@
-package Simulation;
-
+package simulation;
 import java.awt.Color;
 
 import javax.swing.JPanel;
@@ -27,13 +26,12 @@ public class Visual extends ApplicationFrame {
 		super(title);
 
 		/*
-		 * float[][] data = new float[xy.length][xy[0].length]; for(int i = 0; i
-		 * < data.length; i++){ for(int k = 0; k < data[i].length; k++)
-		 * data[i][k] = (float) xy[i][k]; } ValueAxis domainAxis = new
-		 * NumberAxis("Steps"); ValueAxis rangeAxis = new NumberAxis("Opinion");
-		 * FastScatterPlot fsp = new FastScatterPlot(data, domainAxis,
-		 * rangeAxis); JFreeChart chart = new JFreeChart("Fast Scatter Plot",
-		 * fsp);
+		 * float[][] data = new float[xy.length][xy[0].length]; for(int i = 0; i <
+		 * data.length; i++){ for(int k = 0; k < data[i].length; k++) data[i][k] =
+		 * (float) xy[i][k]; } ValueAxis domainAxis = new NumberAxis("Steps"); ValueAxis
+		 * rangeAxis = new NumberAxis("Opinion"); FastScatterPlot fsp = new
+		 * FastScatterPlot(data, domainAxis, rangeAxis); JFreeChart chart = new
+		 * JFreeChart("Fast Scatter Plot", fsp);
 		 */
 		XYDataset dataset = createDataset(xy);
 		JFreeChart chart = createChart(dataset);
@@ -55,18 +53,17 @@ public class Visual extends ApplicationFrame {
 	}
 
 	private JFreeChart createChart(XYDataset dataset) {
-		JFreeChart chart = ChartFactory.createScatterPlot("Opinion Dynamism",
-				"Steps", "Opinion", dataset, PlotOrientation.VERTICAL, false,
-				true, false);
+		JFreeChart chart = ChartFactory.createScatterPlot("Opinion Dynamism", "Steps", "Opinion", dataset,
+				PlotOrientation.VERTICAL, false, true, false);
 		/*
 		 * chart.setBackgroundPaint(Color.white); XYPlot plot = (XYPlot)
 		 * chart.getPlot(); plot.setBackgroundPaint(Color.lightGray);
 		 * plot.setAxisOffset(new RectangleInsets(5.0, 5.0, 5.0, 5.0));
 		 * plot.setDomainGridlinePaint(Color.white);
-		 * plot.setRangeGridlinePaint(Color.white); XYLineAndShapeRenderer
-		 * renderer = (XYLineAndShapeRenderer) plot.getRenderer();
-		 * renderer.setShapesVisible(true); renderer.setShapesFilled(true);
-		 * NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
+		 * plot.setRangeGridlinePaint(Color.white); XYLineAndShapeRenderer renderer =
+		 * (XYLineAndShapeRenderer) plot.getRenderer(); renderer.setShapesVisible(true);
+		 * renderer.setShapesFilled(true); NumberAxis rangeAxis = (NumberAxis)
+		 * plot.getRangeAxis();
 		 * rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
 		 */
 		return chart;

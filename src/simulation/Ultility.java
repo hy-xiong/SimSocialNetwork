@@ -1,5 +1,4 @@
-package Simulation;
-
+package simulation;
 import java.io.*;
 import java.util.*;
 
@@ -10,23 +9,19 @@ public class Ultility {
 		String[][] output;
 		// Read LandParcel file
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File(
-					inFile)));
+			BufferedReader br = new BufferedReader(new FileReader(new File(inFile)));
 			String line = br.readLine();
 			while ((line = br.readLine()) != null) {
 				if (line.startsWith("\"")) {
 					String[] temp1 = line.split("\",");
 					String[] temp2 = temp1[1].split(",\"");
-					String[] temp = new String[] {
-							temp1[0].replace("\"", "").replace(",", ""),
-							temp2[0], temp2[1].replace(",", ""),
-							temp1[2].replace("\"", "").replace(",", "") };
+					String[] temp = new String[] { temp1[0].replace("\"", "").replace(",", ""), temp2[0],
+							temp2[1].replace(",", ""), temp1[2].replace("\"", "").replace(",", "") };
 					content.add(temp);
 				} else {
 					String[] temp1 = line.split(",", 3);
 					String[] temp2 = temp1[2].split("\",\"");
-					String[] temp = new String[] { temp1[0], temp1[1],
-							temp2[0].replace("\"", "").replace(",", ""),
+					String[] temp = new String[] { temp1[0], temp1[1], temp2[0].replace("\"", "").replace(",", ""),
 							temp2[1].replace("\"", "").replace(",", "") };
 					content.add(temp);
 				}
@@ -47,8 +42,7 @@ public class Ultility {
 		String[][] output;
 		ArrayList<String[]> content = new ArrayList<String[]>();
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(new File(
-					inFile)));
+			BufferedReader br = new BufferedReader(new FileReader(new File(inFile)));
 			String line = br.readLine();
 			while ((line = br.readLine()) != null) {
 				String[] temp = line.split("\t");
@@ -74,9 +68,7 @@ public class Ultility {
 		// Clone social network
 		for (int i = 0; i < agents.size(); i++) {
 			for (int k = 0; k < agents.get(i).getNeighbors().size(); k++) {
-				listCopy.get(i).addNeighbors(
-						listCopy.get(agents.indexOf(agents.get(i)
-								.getNeighbors().get(k))));
+				listCopy.get(i).addNeighbors(listCopy.get(agents.indexOf(agents.get(i).getNeighbors().get(k))));
 			}
 		}
 		return listCopy;
